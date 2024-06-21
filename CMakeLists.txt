@@ -87,7 +87,7 @@ if(LIB_METIS)
 endif()
 
 # 64 Bit option
-option(64BITMODE "64 bit mode" OFF)
+option(64BITMODE "64 bit mode" ON)
 if(64BITMODE)
   add_definitions("-DMODE64BITEDGES")
   add_definitions("-DPOINTER64=1")
