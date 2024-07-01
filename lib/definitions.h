@@ -29,17 +29,17 @@
  * Constants
  * ********************************************/
 //Types needed for the graph ds
-typedef unsigned int 	NodeID;
+typedef int64_t 	NodeID;
 typedef double 		EdgeRatingType;
 typedef unsigned int 	PathID;
-typedef unsigned int 	PartitionID;
-typedef unsigned int 	NodeWeight;
-typedef int 		EdgeWeight;
+typedef uint64_t 	PartitionID;
+typedef int64_t	        NodeWeight;
+typedef int64_t 	EdgeWeight;
 typedef EdgeWeight 	Gain;
 #ifdef MODE64BITEDGES
-typedef uint64_t 	EdgeID;
+typedef int64_t 	EdgeID;
 #else
-typedef unsigned int 	EdgeID;
+typedef int64_t	        EdgeID;
 #endif
 typedef int 		Color;
 typedef unsigned int 	Count;

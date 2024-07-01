@@ -224,7 +224,7 @@ class graph_access {
                 int* UNSAFE_metis_style_vwgt_array();
                 int* UNSAFE_metis_style_adjwgt_array();
 
-                int build_from_metis(int n, int* xadj, int* adjncy);
+                int build_from_metis(int n, int64_t* xadj, int64_t* adjncy);
                 int build_from_metis_weighted(int n, int* xadj, int* adjncy, int * vwgt, int* adjwgt);
 
                 //void set_node_queue_index(NodeID node, Count queue_index); 
@@ -473,7 +473,7 @@ inline void graph_access::set_partition_count(PartitionID count) {
         m_partition_count = count;
 }
 
-inline int graph_access::build_from_metis(int n, int* xadj, int* adjncy) {
+inline int graph_access::build_from_metis(int n, int64_t* xadj, int64_t* adjncy) {
         if(graphref != NULL) {
                 delete graphref;
         }
@@ -485,7 +485,7 @@ inline int graph_access::build_from_metis(int n, int* xadj, int* adjncy) {
                 setNodeWeight(node, 1);
                 setPartitionIndex(node, 0);
 
-                for( unsigned e = xadj[i]; e < (unsigned)xadj[i+1]; e++) {
+                for( int64_t e = xadj[i]; e < xadj[i+1]; e++) {
                         EdgeID e_bar = new_edge(node, adjncy[e]);
                         setEdgeWeight(e_bar, 1);
                 }

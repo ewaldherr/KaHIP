@@ -65,10 +65,10 @@ void internal_kaffpa_set_configuration( configuration & cfg,
 
 void internal_build_graph( PartitionConfig & partition_config, 
                            int* n, 
-                           int* vwgt, 
-                           int* xadj, 
-                           int* adjcwgt, 
-                           int* adjncy,
+                           int64_t* vwgt, 
+                           int64_t* xadj, 
+                           int64_t* adjcwgt, 
+                           int64_t* adjncy,
                            graph_access & G) {
         G.build_from_metis(*n, xadj, adjncy); 
         G.set_partition_count(partition_config.k); 
@@ -95,15 +95,15 @@ void internal_build_graph( PartitionConfig & partition_config,
 void internal_kaffpa_call(PartitionConfig & partition_config, 
                           bool suppress_output, 
                           int* n, 
-                          int* vwgt, 
-                          int* xadj, 
-                          int* adjcwgt, 
-                          int* adjncy, 
+                          int64_t* vwgt, 
+                          int64_t* xadj, 
+                          int64_t* adjcwgt, 
+                          int64_t* adjncy, 
                           int* nparts, 
                           double* imbalance, 
                           bool perfectly_balance,
                           int* edgecut, 
-                          int* part) {
+                          int64_t* part) {
 
         //streambuf* backup = cout.rdbuf();
         //ofstream ofs;
@@ -144,17 +144,17 @@ void internal_kaffpa_call(PartitionConfig & partition_config,
 }
 
 void kaffpa(int* n, 
-                   int* vwgt, 
-                   int* xadj, 
-                   int* adjcwgt, 
-                   int* adjncy, 
+                   int64_t* vwgt, 
+                   int64_t* xadj, 
+                   int64_t* adjcwgt, 
+                   int64_t* adjncy, 
                    int* nparts, 
                    double* imbalance, 
                    bool suppress_output, 
                    int seed,
                    int mode,
                    int* edgecut, 
-                   int* part) {
+                   int64_t* part) {
         configuration cfg;
         PartitionConfig partition_config;
         partition_config.k = *nparts;
