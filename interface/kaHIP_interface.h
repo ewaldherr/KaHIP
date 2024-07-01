@@ -27,56 +27,56 @@ const int MAPMODE_BISECTION = 1;
 // same data structures as in metis 
 // edgecut and part are output parameters
 // part has to be an array of n ints
-void kaffpa(int* n, int* vwgt, int* xadj, 
-                   int* adjcwgt, int* adjncy, int* nparts, 
+void kaffpa(int* n, int64_t* vwgt, int64_t* xadj, 
+                   int64_t* adjcwgt, int64_t* adjncy, int* nparts, 
                    double* imbalance, bool suppress_output, int seed, int mode, 
-                   int* edgecut, int* part);
+                   int* edgecut, int64_t* part);
 
 // same as kaffpa, provides an additional parameter for perfect balance
-void kaffpa_balance(int* n, int* vwgt, int* xadj, 
-                   int* adjcwgt, int* adjncy, int* nparts, 
+void kaffpa_balance(int* n, int64_t* vwgt, int64_t* xadj, 
+                   int64_t* adjcwgt, int64_t* adjncy, int* nparts, 
                    double* imbalance, 
                    bool perfectly_balance, 
                    bool suppress_output, int seed, int mode, 
-                   int* edgecut, int* part);
+                   int* edgecut, int64_t* part);
 
 // balance constraint on nodes and edges
-void kaffpa_balance_NE(int* n, int* vwgt, int* xadj, 
-                int* adjcwgt, int* adjncy, int* nparts, 
+void kaffpa_balance_NE(int* n, int64_t* vwgt, int64_t* xadj, 
+                int64_t* adjcwgt, int64_t* adjncy, int* nparts, 
                 double* imbalance,  bool suppress_output, int seed, int mode,
-                int* edgecut, int* part);
+                int* edgecut, int64_t* part);
 
 // same data structures as in metis 
 // edgecut and part and qap are output parameters
 // part has to be an array of n ints
-void process_mapping(int* n, int* vwgt, int* xadj, 
-                   int* adjcwgt, int* adjncy,  
+void process_mapping(int* n, int64_t* vwgt, int64_t* xadj, 
+                   int64_t* adjcwgt, int64_t* adjncy,  
                    int* hierarchy_parameter,  int* distance_parameter, int hierarchy_depth, 
                    int mode_partitioning, int mode_mapping,
                    double* imbalance,  
                    bool suppress_output, int seed,
-                   int* edgecut, int* qap, int* part);
+                   int* edgecut, int* qap, int64_t* part);
 
 
-void node_separator(int* n, int* vwgt, int* xadj, 
-                    int* adjcwgt, int* adjncy, int* nparts, 
+void node_separator(int* n, int64_t* vwgt, int64_t* xadj, 
+                    int64_t* adjcwgt, int64_t* adjncy, int* nparts, 
                     double* imbalance,  bool suppress_output, int seed, int mode,
                     int* num_separator_vertices, int** separator); 
 
 // takes an unweighted graph and performs reduced nested dissection
 // ordering is the output parameter, an array of n ints
-void reduced_nd(int* n, int* xadj, int* adjncy,
+void reduced_nd(int* n, int64_t* xadj, int64_t* adjncy,
                 bool suppress_output, int seed, int mode,
                 int* ordering);
 
-void edge_partitioning(int* n, int* vwgt, int* xadj, 
-                   int* adjcwgt, int* adjncy, int* nparts, 
+void edge_partitioning(int* n, int64_t* vwgt, int64_t* xadj, 
+                   int64_t* adjcwgt, int64_t* adjncy, int* nparts, 
                    double* imbalance, bool suppress_output, int seed, int mode, 
-                   int* vertexcut, int* part, int infinity_edge_weight = 1000);
+                   int* vertexcut, int64_t* part, int infinity_edge_weight = 1000);
 
 #ifdef USEMETIS
 // reduced nested dissection with metis
-void reduced_nd_fast(int* n, int* xadj, int* adjncy,
+void reduced_nd_fast(int* n, int64_t* xadj, int64_t* adjncy,
                       bool suppress_output, int seed, int* ordering);
 #endif
 
