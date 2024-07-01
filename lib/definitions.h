@@ -32,7 +32,7 @@
 typedef int64_t 	NodeID;
 typedef double 		EdgeRatingType;
 typedef unsigned int 	PathID;
-typedef uint64_t 	PartitionID;
+typedef int64_t 	PartitionID;
 typedef int64_t	        NodeWeight;
 typedef int64_t 	EdgeWeight;
 typedef EdgeWeight 	Gain;
