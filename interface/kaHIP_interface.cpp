@@ -314,10 +314,10 @@ void internal_nodeseparator_call(PartitionConfig & partition_config,
 
 
 void node_separator(int* n, 
-                    int* vwgt, 
-                    int* xadj, 
-                    int* adjcwgt, 
-                    int* adjncy, 
+                    int64_t* vwgt, 
+                    int64_t* xadj, 
+                    int64_t* adjcwgt, 
+                    int64_t* adjncy, 
                     int* nparts, 
                     double* imbalance, 
                     bool suppress_output, 
@@ -606,13 +606,13 @@ void internal_processmapping_call(PartitionConfig & partition_config,
         //cout.rdbuf(backup);
 }
 
-void process_mapping(int* n, int* vwgt, int* xadj, 
-                   int* adjcwgt, int* adjncy, 
+void process_mapping(int* n, int64_t* vwgt, int64_t* xadj, 
+                   int64_t* adjcwgt, int64_t* adjncy, 
                    int* hierarchy_parameter,  int* distance_parameter, int hierarchy_depth, 
                    int mode_partitioning, int mode_mapping,
                    double* imbalance,  
                    bool suppress_output, int seed,
-                   int* edgecut, int* qap, int* part) {
+                   int* edgecut, int* qap, int64_t* part) {
 
         configuration cfg;
         PartitionConfig partition_config;
