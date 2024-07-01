@@ -170,7 +170,7 @@ bool augmented_Qgraph_fabric::build_augmented_quotient_graph( PartitionConfig & 
                                 PartitionID cur_block = tmp_candidates[r_idx];
 
                                 do {
-                                        unsigned int node       = random_functions::nextInt(0, G.number_of_nodes()-1);
+                                        int64_t node       = random_functions::nextInt(0, G.number_of_nodes()-1);
                                         PartitionID nodes_block = G.getPartitionIndex(node);
                                         if( nodes_block != cur_block 
                                          && boundary.getBlockWeight(nodes_block) > config.upper_bound_partition) {

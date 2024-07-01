@@ -37,7 +37,7 @@ private:
         std::vector< MPI_Request* > m_request_pointers;
         std::vector<bool>            m_allready_send_to;
 
-        int m_prev_best_objective;
+        int64_t m_prev_best_objective;
         int m_max_num_pushes;
         int m_cur_num_pushes;
 

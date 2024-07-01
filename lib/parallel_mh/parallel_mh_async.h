@@ -38,8 +38,8 @@ private:
 
         //the best cut found so far
         PartitionID* m_best_global_map;
-        int          m_best_global_objective;
-        int          m_best_cycle_objective;
+        int64_t          m_best_global_objective;
+        int64_t          m_best_cycle_objective;
 
         //island
         population* m_island;
